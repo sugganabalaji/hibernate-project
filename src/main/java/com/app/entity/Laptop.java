@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
+@Cacheable
 public class Laptop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "person")
+@Cacheable
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

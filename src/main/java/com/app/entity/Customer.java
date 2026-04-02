@@ -16,8 +16,7 @@ public class Customer {
     @Column(name = "customer_name", length = 50)
     private String customerName;
 
-    @OneToMany(mappedBy = "customer"
-            , cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Order> orders;
 
     public int getCustomerId() {

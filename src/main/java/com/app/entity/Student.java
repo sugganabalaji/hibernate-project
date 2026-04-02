@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "student")
+@Cacheable
 public class Student {
 
     @Id
