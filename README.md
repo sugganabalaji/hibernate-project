@@ -20,4 +20,4 @@ This project demonstrates how to use Hibernate ORM with PostgreSQL to manage dat
 ## 🚀 Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/hibernate-postgres-project.git
+   git clone https://github.com/sugganabalaji/hibernate-project.git
