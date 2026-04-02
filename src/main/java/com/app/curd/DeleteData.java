@@ -1,21 +1,18 @@
 package com.app.curd;
 
 import com.app.entity.Student;
+import com.app.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 public class DeleteData {
 
     public static void main(String[] args) {
 
-        SessionFactory sf = new Configuration()
-                .addAnnotatedClass(Student.class)
-                .configure()
-                .buildSessionFactory();
+        SessionFactory sessionfactory = HibernateUtils.getSessionfactory();
 
-        Session session = sf.openSession();
+        Session session = sessionfactory.openSession();
 
         Transaction transaction = session.beginTransaction();
 
@@ -29,7 +26,7 @@ public class DeleteData {
             System.out.println("Record not found");
         }
         session.close();
-        sf.close();
+        HibernateUtils.closeSessionFactory();
     }
 
 }

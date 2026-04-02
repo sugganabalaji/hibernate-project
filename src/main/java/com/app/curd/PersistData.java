@@ -1,10 +1,10 @@
 package com.app.curd;
 
 import com.app.entity.Student;
+import com.app.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 public class PersistData {
 
@@ -15,12 +15,9 @@ public class PersistData {
         s1.setsName("Save");
         s1.setMarks(21);
 
-        SessionFactory sf = new Configuration()
-                .addAnnotatedClass(Student.class)
-                .configure()
-                .buildSessionFactory();
+        SessionFactory sessionfactory = HibernateUtils.getSessionfactory();
 
-        Session session = sf.openSession();
+        Session session = sessionfactory.openSession();
 
         Transaction transaction = session.beginTransaction();
 
@@ -29,7 +26,7 @@ public class PersistData {
         transaction.commit();
 
         session.close();
-        sf.close();
+        HibernateUtils.closeSessionFactory();
 
         System.out.println(s1);
     }

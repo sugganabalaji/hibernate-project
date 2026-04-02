@@ -11,7 +11,7 @@ public class Student {
     @Column
     private String sName;
     private int marks;
-    @Transient
+    @Transient // This column will not store in DB
     private int age;
 
     public int getSId() {
