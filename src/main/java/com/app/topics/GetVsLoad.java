@@ -17,7 +17,8 @@ public class GetVsLoad {
         // session.get(Laptop.class, 1L); // EAGER loading
         // session.load(Laptop.class, 1L); // LAZY loading - depricated
         // Laptop laptop = session.byId(Laptop.class).getReference(1L); // LAZY Loading - deprecated
-        //System.out.println(laptop);
+        Laptop laptop = session.getReference(Laptop.class, 1L); // LAZY Loading
+        System.out.println(laptop);
 
         session.close();
         HibernateUtils.closeSessionFactory();
