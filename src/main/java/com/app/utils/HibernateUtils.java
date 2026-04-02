@@ -1,9 +1,6 @@
 package com.app.utils;
 
-import com.app.entity.Laptop;
-import com.app.entity.Passport;
-import com.app.entity.Person;
-import com.app.entity.Student;
+import com.app.entity.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -14,6 +11,8 @@ public class HibernateUtils {
             .addAnnotatedClass(Laptop.class)
             .addAnnotatedClass(Person.class)
             .addAnnotatedClass(Passport.class)
+            .addAnnotatedClass(Customer.class)
+            .addAnnotatedClass(Order.class)
             .configure("hibernate.cfg.xml")
             .buildSessionFactory();
 
