@@ -12,16 +12,18 @@ public class HqlFetchNotStar_2 {
 
         Session session = sessionfactory.openSession();
 
-        // SELECT model FROM laptop - SQL
-        // SELECT model FROM Laptop - HQL
+        // SELECT model, processor FROM laptop - SQL
+        // SELECT model, configurations.processor  FROM Laptop - HQL
 
         session.createQuery("SELECT model, configurations.processor FROM Laptop", String[].class)
                 .list()
                 .forEach(s -> System.out.println(s[0] + ", " + s[1]));
 
-        /*Query query = session.createQuery("SELECT model FROM Laptop", String.class);
-        List<String> laptops = query.getResultList();
-        System.out.println(laptops);*/
+        /*Query query = session.createQuery("SELECT model, configurations.processor FROM Laptop", String[].class);
+        List<String[]> rows = query.getResultList();
+        for (String[] column : rows) {
+            System.out.print(column[0] + ", " + column[1]);
+        }*/
 
         session.close();
 
